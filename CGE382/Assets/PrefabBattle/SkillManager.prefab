@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6788740658866731990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5877792047476069737}
+  - component: {fileID: 4624018512120384910}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5877792047476069737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788740658866731990}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4624018512120384910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788740658866731990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f5ccd0e03821d40b2017a737504579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listDataSkills:
+  - nameSkill: Flamethrower
+    dataSkill:
+    - {fileID: 11400000, guid: fc18fc304e275384092daa572b6bca40, type: 2}
+  - nameSkill: Meteor
+    dataSkill:
+    - {fileID: 11400000, guid: 961d50c6c025aea4f80a90fe8c6f9153, type: 2}
+  - nameSkill: BallFire
+    dataSkill:
+    - {fileID: 11400000, guid: f280477e93ccb2e42bf18b5f7d242cc4, type: 2}
+  - nameSkill: FlameWave
+    dataSkill:
+    - {fileID: 11400000, guid: b0781f0da9cb01d4a84e01e4340d13e4, type: 2}
+  - nameSkill: ShurikenFlame
+    dataSkill:
+    - {fileID: 11400000, guid: ce9242b2d6209024a8e5a485a82a0403, type: 2}
+  - nameSkill: Rain
+    dataSkill:
+    - {fileID: 11400000, guid: b13573ecf200a204596d2ee6bbd1bd92, type: 2}
+  - nameSkill: VotexWaves
+    dataSkill:
+    - {fileID: 11400000, guid: 9d3e56096ac1d6e469d00020ab349112, type: 2}
+  - nameSkill: WaterBomb
+    dataSkill:
+    - {fileID: 11400000, guid: 634495539fc858046af164e3b1740583, type: 2}
+  - nameSkill: WaterWave
+    dataSkill:
+    - {fileID: 11400000, guid: 57ec8bc05b5237042a42c1a0b2b0fa80, type: 2}
+  - nameSkill: Bubble
+    dataSkill:
+    - {fileID: 11400000, guid: e88fa21e352310a45873151cd7f956c7, type: 2}
+  - nameSkill: SpearWind
+    dataSkill:
+    - {fileID: 11400000, guid: 706a1dbf614924b44b2f283cb0e57e69, type: 2}
+  - nameSkill: Vacuum Bomb
+    dataSkill:
+    - {fileID: 11400000, guid: 99b5c2011fad0a94889f7a7f4695fdb6, type: 2}
+  - nameSkill: WindSlash
+    dataSkill:
+    - {fileID: 11400000, guid: 5df64e79d5e05e94f9a75fdaa89a6e7e, type: 2}
+  - nameSkill: GustWind
+    dataSkill:
+    - {fileID: 11400000, guid: 5f3f6d99ee5de9e41bfe0d4ceafd6174, type: 2}
+  - nameSkill: Tornado
+    dataSkill:
+    - {fileID: 11400000, guid: 1950ea7371da5954da3a6470f8e6e86a, type: 2}
+  - nameSkill: EarthSpike
+    dataSkill:
+    - {fileID: 11400000, guid: 75e3684c7ac27ee4a8263fcf0828e1b5, type: 2}
+  - nameSkill: Mountain
+    dataSkill:
+    - {fileID: 11400000, guid: 4f146417c8a4b844f9234b67228f07da, type: 2}
+  - nameSkill: Rock
+    dataSkill:
+    - {fileID: 11400000, guid: 8ad67062bd6d06c48a49864862d34f1c, type: 2}
+  - nameSkill: Earth Wall
+    dataSkill:
+    - {fileID: 11400000, guid: 24f0cfd43a8f86842957b367037f5e2e, type: 2}
+  - nameSkill: Eartquake
+    dataSkill:
+    - {fileID: 11400000, guid: 14ba2e9e11622344b98a26f258616562, type: 2}
+  tierSkill: 0

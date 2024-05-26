@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa50d37eee05de48a46e0bfdc0576ea, type: 3}
+  m_Name: Carrot
+  m_EditorClassIdentifier: 
+  name: Carrot
+  ageWatering: 9
+  maxAge: 12
+  stage01: {fileID: 1054590743, guid: f15acefdd6a2a60478851befdcfc8575, type: 3}
+  stage02: {fileID: 775948126, guid: f15acefdd6a2a60478851befdcfc8575, type: 3}
+  stage03: {fileID: -1867377969, guid: f15acefdd6a2a60478851befdcfc8575, type: 3}
+  HarvestIcon: {fileID: 21300000, guid: 3582729d654481e44a253a0ad48b3d54, type: 3}
+  itemData: {fileID: 11400000, guid: bc5d8d4405536c44a99f3fd1755fed21, type: 2}

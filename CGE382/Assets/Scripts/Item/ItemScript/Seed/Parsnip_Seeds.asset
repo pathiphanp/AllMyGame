@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe916fcfef28243468002fadfc3e659d, type: 3}
+  m_Name: Parsnip_Seeds
+  m_EditorClassIdentifier: 
+  itemName: Parsnip Seeds
+  icon: {fileID: 21300000, guid: e5a06d7e8fa43af48bb3246b2fa40fb2, type: 3}
+  price: 0
+  plantType: {fileID: 11400000, guid: 1b5067060c23abc4583f982cd7872ed9, type: 2}
+  itemType: 1
