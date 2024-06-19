@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CGE382.sln"
+    "dotnet.defaultSolution": "WildwoodSuccessors.sln"
 }

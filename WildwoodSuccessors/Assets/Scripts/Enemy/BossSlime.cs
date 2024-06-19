@@ -24,7 +24,6 @@ public class BossSlime : Boss, CallBlackBoss
     {
         BossOn = true;
         SetShield();
-        // StartJump();
     }
     #region test
     // void Update()
@@ -143,7 +142,6 @@ public class BossSlime : Boss, CallBlackBoss
     public override void BossBackAttack()
     {
         StopAllCoroutines();
-        // StartCoroutine(Jump(1, blackdistance, true, false));
     }
     public override void BossGoOutMap()
     {
@@ -152,8 +150,6 @@ public class BossSlime : Boss, CallBlackBoss
         anim.Play("Warp");
         transform.position = new Vector2(100, 100);
         StartCoroutine(SpawnMonsterDuration(false));
-        // sprite.flipX = true;
-        // StartCoroutine(Jump(50, -movedistance, false, true));
     }
     public override void BossOutMap()
     {

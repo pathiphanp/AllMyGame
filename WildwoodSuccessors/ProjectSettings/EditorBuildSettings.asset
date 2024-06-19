@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay.unity
     guid: 664c43643171baf45809625586f45f27
   - enabled: 1
-    path: Assets/Scenes/TutorialFarming.unity
+    path: Assets/Scenes/FarmingTutorial.unity
     guid: 1d30ab3409aa348478e300ae84661266
   - enabled: 1
     path: Assets/Scenes/BattleTutorial.unity

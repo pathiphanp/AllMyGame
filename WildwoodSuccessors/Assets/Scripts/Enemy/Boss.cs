@@ -18,13 +18,10 @@ public class Boss : Enemy
     }
     public virtual IEnumerator SpawnMonsterDuration(bool side)
     {
-        // Debug.Log("OutMap");
         SetMoveEnable(false);
         SetShield();
-        // spawnEnemy.BossCallSpawnMonster(delaySpawnMonster, monsterType);
         StartCoroutine(RegenShield());
         yield return new WaitForSeconds(20);
-        // spawnEnemy.BossStopSpawnMonster();
         RandomPositionInStartPosition();
         sprite.flipX = side;
         SetMoveEnable(true);

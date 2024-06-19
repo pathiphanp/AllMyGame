@@ -144,7 +144,6 @@ public class BossBat : Boss, CallBlackBoss
     }
     public override void BossSleep()
     {
-        Debug.Log("EndDay");
         StopAllCoroutines();
         rb.Sleep();
         transform.position = new Vector2(100, 100);

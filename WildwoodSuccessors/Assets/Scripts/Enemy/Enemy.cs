@@ -245,12 +245,10 @@ AddPull, AddKnockback, CancelPulled, AddBubble, AddStun
     IEnumerator Stun(float duration, bool knockUp)
     {
         SetMoveEnable(false);
-
         if (BossMode)
         {
             if (!haveSield)
             {
-                outMap = true;
                 yield return new WaitForSeconds(duration);
                 BossGoOutMap();
             }
@@ -400,17 +398,6 @@ AddPull, AddKnockback, CancelPulled, AddBubble, AddStun
             if (BossMode)
             {
                 StartCoroutine(DelayBossBlackAttack());
-            }
-        }
-        if (other.gameObject.tag == "OutOffMap")
-        {
-            if (BossMode)
-            {
-                BossOutMap();
-            }
-            else
-            {
-                RandomPositionInStartPosition();
             }
         }
         if (other.gameObject.tag == "DestroyArea")
@@ -605,7 +592,7 @@ AddPull, AddKnockback, CancelPulled, AddBubble, AddStun
             {
                 _bubbleS.target = null;
             }
-            //Spawn Effect Die]
+            //Spawn Effect Die
             StartCoroutine(DelayReturnToPool());
         }
         else
