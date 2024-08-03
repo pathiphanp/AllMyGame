@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/pathi/Desktop/Ump/MyGame/WebBuild/WildwoodSuccessors;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/Lenovo/Desktop/Ump/AllMyGameBuild/WildwoodSuccessors;C:/Users/Lenovo/Desktop/WildwoodSuccessors Web;C:/Users/Lenovo/Desktop/WildwoodSuccessors;C:/Users/pathi/Desktop/Ump/MyGame/WebBuild/WildwoodSuccessors;;;;;;\"}"
             }
         ]
     }

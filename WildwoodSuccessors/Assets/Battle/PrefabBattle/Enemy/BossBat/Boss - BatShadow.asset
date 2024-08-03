@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9736c4cc5fdd594c99ad00d384e2136, type: 3}
+  m_Name: Boss - BatShadow
+  m_EditorClassIdentifier: 
+  spriteEnemy: {fileID: 1871001809, guid: 22beb65cc83529345b6be007c18e7e16, type: 3}
+  maxHp: 500
+  damage: 10
+  elementShield: 0
+  shield: 0
+  speedMove: 1
+  speedRegenShield: 99999

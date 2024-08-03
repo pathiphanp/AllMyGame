@@ -1,0 +1,154 @@
+{
+    "name": "PlayerCombatInputt",
+    "maps": [
+        {
+            "name": "CombatMode",
+            "id": "7b2c98f7-09a5-4a1c-b530-bd919f82024d",
+            "actions": [
+                {
+                    "name": "ElementFire",
+                    "type": "Button",
+                    "id": "a8d10c9b-6040-489d-aea2-e26706ac2191",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ElementWater",
+                    "type": "Button",
+                    "id": "0602c6ca-ea5d-4cc1-8c03-374949b9d033",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ElementWind",
+                    "type": "Button",
+                    "id": "f75a31ab-59ba-445c-96fb-13a35c47f73a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ElementEarth",
+                    "type": "Button",
+                    "id": "df40ef52-df6b-4de0-aa5b-7720b0b4c35e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ComboSkillLeft",
+                    "type": "Button",
+                    "id": "2229531e-f73f-4441-bbb5-1401f61e6766",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ComboSkillRight",
+                    "type": "Button",
+                    "id": "bb4ebcdf-df85-4024-a240-9b4b19890e4f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeMode",
+                    "type": "Button",
+                    "id": "fcd08f22-124e-4230-ab93-8c6adf18f51a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2ff0187e-6904-429f-b0fd-200fae3cdb2a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ElementFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92c0134c-233a-4289-8f9a-56887e926f59",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ComboSkillLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28b5bec6-ebe2-44e8-b1df-5d200091303b",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ElementWater",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18526667-12c0-4217-a8b1-e44faf7bd590",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ElementWind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28f6dfb8-1c6b-48f5-8fde-c99ffefaa4c4",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ElementEarth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "211c6ab6-bae8-4895-86a8-abe3645c6c37",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ComboSkillRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e250f71a-bb19-43c7-a302-e83abf554801",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

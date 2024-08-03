@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa50d37eee05de48a46e0bfdc0576ea, type: 3}
+  m_Name: Hotpepper
+  m_EditorClassIdentifier: 
+  name: Hot pepper
+  ageWatering: 7
+  maxAge: 14
+  stage01: {fileID: -1931542826, guid: f15acefdd6a2a60478851befdcfc8575, type: 3}
+  stage02: {fileID: -1427857050, guid: f15acefdd6a2a60478851befdcfc8575, type: 3}
+  stage03: {fileID: -59390636, guid: f15acefdd6a2a60478851befdcfc8575, type: 3}
+  HarvestIcon: {fileID: 21300000, guid: cb1b2530a3260fb45bf42100a0e014a5, type: 3}
+  itemData: {fileID: 11400000, guid: 1f284ba9196b85143a844b74e85b45f0, type: 2}
