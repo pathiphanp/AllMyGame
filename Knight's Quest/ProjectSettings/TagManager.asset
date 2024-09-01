@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UIGamePlay
+    uniqueID: 3321146455
+    locked: 0
+  - name: Label
+    uniqueID: 3565615699
+    locked: 0
+  - name: Fade
+    uniqueID: 2249250609
+    locked: 0
+  - name: GameOver
+    uniqueID: 4252349033
+    locked: 0
+  - name: HowToPlay
+    uniqueID: 507354285
+    locked: 0
