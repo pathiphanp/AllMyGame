@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
-using UnityEngine.SceneManagement;
 
 public class ControlGamePlay : Singleton<ControlGamePlay>
 {
@@ -53,7 +50,6 @@ public class ControlGamePlay : Singleton<ControlGamePlay>
 
     private void Start()
     {
-        AudioManager._instance.PlayMusic("BGSound");
         btnResetLetter.onClick.AddListener(OnClickResetBoxLetterAll);
         btnAttack.onClick.AddListener(Attack);
         btnHealPotion.onClick.AddListener(OnClickUseHealPotion);

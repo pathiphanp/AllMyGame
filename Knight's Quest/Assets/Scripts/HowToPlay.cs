@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -82,7 +79,8 @@ public class HowToPlay : MonoBehaviour
     private void OnClickhowToButHint()
     {
         OffAll();
-        videoPlayerHowToPlay.clip = videohowToButHint;
+        videoPlayerHowToPlay.url = VideoURL("Hint.mp4");
+        videoPlayerHowToPlay.Play();
         AllBtn.SetActive(false);
         btnOffHowToPlay.gameObject.SetActive(true);
         howToButHint.SetActive(true);
@@ -92,7 +90,8 @@ public class HowToPlay : MonoBehaviour
     private void OnClickhowToAttack()
     {
         OffAll();
-        videoPlayerHowToPlay.clip = videohowToAttack;
+        videoPlayerHowToPlay.url = VideoURL("Attack.mp4");
+        videoPlayerHowToPlay.Play();
         AllBtn.SetActive(false);
         btnOffHowToPlay.gameObject.SetActive(true);
         howToAttack.SetActive(true);
@@ -102,7 +101,8 @@ public class HowToPlay : MonoBehaviour
     private void OnClickhowToSelect()
     {
         OffAll();
-        videoPlayerHowToPlay.clip = videohowToSelect;
+        videoPlayerHowToPlay.url = VideoURL("Select-Vocabulary.mp4");
+        videoPlayerHowToPlay.Play();
         AllBtn.SetActive(false);
         btnOffHowToPlay.gameObject.SetActive(true);
         howToSelect.SetActive(true);
@@ -118,6 +118,12 @@ public class HowToPlay : MonoBehaviour
         repeated.SetActive(false);
         potionHeal.SetActive(false);
         potionBuffDamage.SetActive(false);
+    }
+
+    string VideoURL(string _videoFileName)
+    {
+        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, _videoFileName);
+        return videoPath;
     }
 
 }

@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
-using System.IO;
-using Unity.VisualScripting;
 using System;
 public class DataVocabularyManager : Singleton<DataVocabularyManager>
 {
@@ -19,6 +16,8 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
     [Header("DataVocabularyInGame")]
     [SerializeField] public List<Vocabulary> vocabularyInGame = new List<Vocabulary>();
     [SerializeField] Vocabulary findVocabulary;
+
+    [SerializeField] GameObject[] waitGameStart;
     public Vocabulary FindVocabulary
     {
         get
@@ -36,7 +35,6 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
     {
         ControlGamePlay._instance.dataVocabularyManager = this;
         CreateDictionaryVocabularyData();
-        SplitVocabularyreadingmeaning();
     }
     void CreateDictionaryVocabularyData()
     {
@@ -46,6 +44,7 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
             categoryVocabularyData[_category] = new List<Vocabulary>();
         }
         #endregion
+        SplitVocabularyreadingmeaning();
     }
     private void LoadDeta()
     {
@@ -122,6 +121,11 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
             testSaveText += vcs.vocabulary + "|" + vcs.reading + "|" + vcs.meaning + '\n';
         }
         // SaveStringListToFile("output.txt", testSaveText);
+        foreach (GameObject wi in waitGameStart)
+        {
+            wi.SetActive(true);
+        }
+        AudioManager._instance.PlayMusic("BGSound");
     }
     // void SaveStringListToFile(string fileName, string list)
     // {

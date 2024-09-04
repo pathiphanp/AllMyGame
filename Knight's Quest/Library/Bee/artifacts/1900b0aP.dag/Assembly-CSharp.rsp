@@ -335,7 +335,6 @@
 "Assets/Scripts/Monster.cs"
 "Assets/Scripts/Singleton.cs"
 "Assets/Scripts/Sound.cs"
-"Assets/Scripts/UIPotion.cs"
 "Assets/Scripts/Vocabulary.cs"
 -langversion:9.0
 /deterministic
