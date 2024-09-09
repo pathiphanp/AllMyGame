@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using System;
@@ -9,8 +10,9 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
     string[] rawdata;
     Vocabulary[] dataVocabularyA_Z;
     public Dictionary<char, List<Vocabulary>> categoryVocabularyData = new Dictionary<char, List<Vocabulary>>();
+    public List<CategoryVocabulary> categoryVocabulary;
     #endregion
-    List<Vocabulary> vocabularyNotRepeated = new List<Vocabulary>();
+    public List<Vocabulary> vocabularyNotRepeated = new List<Vocabulary>();
     string testSaveText;
 
     [Header("DataVocabularyInGame")]
@@ -42,9 +44,10 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
         for (char _category = 'A'; _category <= 'Z'; _category++)
         {
             categoryVocabularyData[_category] = new List<Vocabulary>();
+            categoryVocabulary.Add(Resources.Load<CategoryVocabulary>(_category.ToString()));
         }
         #endregion
-        SplitVocabularyreadingmeaning();
+        StartCoroutine(SplitVocabularyreadingmeaning());
     }
     private void LoadDeta()
     {
@@ -54,7 +57,7 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
         dataVocabularyA_Z = new Vocabulary[countVocabulary];
     }
 
-    private void SplitVocabularyreadingmeaning()
+    IEnumerator SplitVocabularyreadingmeaning()
     {
         #region  Split Vocabulary reading meaning
         int indexVocabulary = 0;
@@ -72,14 +75,24 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
             indexVocabulary++;
         }
         #endregion
-        RemoveRepeatedVocabulary();
+        foreach (GameObject wi in waitGameStart)
+        {
+            wi.SetActive(true);
+        }
+        // RemoveRepeatedVocabulary();
+        yield break;
     }
     void SplitCategoryVocabularyA_Z(Vocabulary _vocabulary)
     {
         #region Split Category Vocabulary A_Z
-        char _category = _vocabulary.vocabulary[0];
-        _category = char.ToUpper(_category);
-        categoryVocabularyData[_category].Add(_vocabulary);
+        string _category = _vocabulary.vocabulary[0].ToString().ToUpper();
+        foreach (CategoryVocabulary _ct in categoryVocabulary)
+        {
+            if (_ct.name == _category.ToString())
+            {
+                _ct.vocabularies.Add(_vocabulary);
+            }
+        }
         #endregion
     }
 

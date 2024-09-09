@@ -58,7 +58,7 @@ public class ControlBoxLetters : MonoBehaviour
                 SpawnBoxLetters(i);
             }
         }
-        CheckLettersInPull();
+        // CheckLettersInPull();
     }
     void SpawnBoxLetters(int _indexBoxLetters)
     {
@@ -79,7 +79,7 @@ public class ControlBoxLetters : MonoBehaviour
                 ResetLetters(cbx);
             }
         }
-        CheckLettersInPull();
+        // CheckLettersInPull();
     }
     void ResetLetters(GameObject _boxLetters)
     {
@@ -224,9 +224,13 @@ public class ControlBoxLetters : MonoBehaviour
         #endregion
         pointVocabulary = 0;
         ControlGamePlay._instance.optionInGamePlay.SetActive(true);
-        CheckLettersInPull();
+        // CheckLettersInPull();
     }
 
+    void CheckLettersInPullCanMange()
+    {
+        
+    }
     void CheckLettersInPull()
     {
         //Check Letters In Pull Can Marge
