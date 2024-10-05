@@ -8,7 +8,7 @@ public class ControlBoxLetters : MonoBehaviour
     [Header("BoxChar")]
     [SerializeField] GameObject boxCharPrefab;
     [Header("PositionBoxChar")]
-    [SerializeField] GameObject[] countBoxChar = new GameObject[15];
+    [SerializeField] public GameObject[] countBoxChar = new GameObject[15];
     [Header("BtnResetLetters")]
     [SerializeField] public GameObject[] positionLetters;
     [Header("BoxVocabulary")]
@@ -58,7 +58,7 @@ public class ControlBoxLetters : MonoBehaviour
                 SpawnBoxLetters(i);
             }
         }
-        // CheckLettersInPull();
+        CheckCanMangeLettersInPull();
     }
     void SpawnBoxLetters(int _indexBoxLetters)
     {
@@ -79,7 +79,6 @@ public class ControlBoxLetters : MonoBehaviour
                 ResetLetters(cbx);
             }
         }
-        // CheckLettersInPull();
     }
     void ResetLetters(GameObject _boxLetters)
     {
@@ -224,20 +223,17 @@ public class ControlBoxLetters : MonoBehaviour
         #endregion
         pointVocabulary = 0;
         ControlGamePlay._instance.optionInGamePlay.SetActive(true);
-        // CheckLettersInPull();
+        CheckCanMangeLettersInPull();
     }
 
-    void CheckLettersInPullCanMange()
-    {
-        
-    }
-    void CheckLettersInPull()
+
+    void CheckCanMangeLettersInPull()
     {
         //Check Letters In Pull Can Marge
         //collect ,split and count Letters in pull
         #region DataVocabulary
         Dictionary<char, int> _LettersInVocabulary = new Dictionary<char, int>();
-        var _dataVocabulary = ControlGamePlay._instance.dataVocabularyManager.categoryVocabularyData;
+        List<CategoryVocabulary> _dataVocabulary = ControlGamePlay._instance.dataVocabularyManager.categoryVocabulary;
         List<Vocabulary> _VocabularyInData = new List<Vocabulary>();
         #endregion
         #region Letters in Pull
@@ -262,9 +258,8 @@ public class ControlBoxLetters : MonoBehaviour
         for (int _countLetters = 0; _countLetters < countBoxChar.Length; _countLetters++)//Split Letters In pull
         {
             BoxLetters _boxLetters = countBoxChar[_countLetters].GetComponent<BoxLetters>();
-            string _LettersText = _boxLetters.Latters();
+            string _LettersText = _boxLetters.Latters().ToUpper();
             char _Letters = _LettersText[0];
-            _Letters = char.ToUpper(_Letters);
             _DataLettersInPull[_Letters]++;
         }
         foreach (var _LVP in _DataLettersInPull)
@@ -275,15 +270,21 @@ public class ControlBoxLetters : MonoBehaviour
                 _key = char.ToUpper(_key);
                 _LettersInPull.Add(_key);
             }
+            // Debug.Log(_LVP.Key);
         }
 
         // Debug.Log(_LettersInPull[0]);
         for (int indexLetters = 0; indexLetters < _LettersInPull.Count; indexLetters++)//Choose Vocabulary
         {
-            foreach (Vocabulary _vd in _dataVocabulary[_LettersInPull[indexLetters]])//Add Vocabulary in data To List Vocabulary
+            Debug.Log("A");
+            for (int allVocabulary = 0; allVocabulary < _dataVocabulary.Count; allVocabulary++)
             {
-                _VocabularyInData.Add(_vd);
+                foreach (Vocabulary _vd in _dataVocabulary[allVocabulary].vocabulary)//Add Vocabulary in data To List Vocabulary
+                {
+                    _VocabularyInData.Add(_vd);
+                }
             }
+
             //Cout and Split Vocabulary
             for (int rangeVocabulary = 0; rangeVocabulary < _VocabularyInData.Count; rangeVocabulary++)
             {
@@ -321,6 +322,7 @@ public class ControlBoxLetters : MonoBehaviour
                     {
                         vocabularyCanMarge = _vocabularyCanMarge;
                     }
+                    return;
                 }
                 _LettersInVocabulary.Clear();
                 for (char _categoryPull = 'A'; _categoryPull <= 'Z'; _categoryPull++)//creat category
@@ -337,7 +339,7 @@ public class ControlBoxLetters : MonoBehaviour
         if (!haveMarge)
         {
             Debug.Log("Not Have Marge");
-            ControlGamePlay._instance.ResetBoxLetterAll();
+            ResetLettersAll();
         }
     }
 

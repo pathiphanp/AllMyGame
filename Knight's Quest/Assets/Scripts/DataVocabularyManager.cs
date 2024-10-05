@@ -3,13 +3,14 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using System;
+using System.Threading;
 public class DataVocabularyManager : Singleton<DataVocabularyManager>
 {
     #region Vocabulary Data
     [Header("DataVocabulary")]
     string[] rawdata;
     Vocabulary[] dataVocabularyA_Z;
-    public Dictionary<char, List<Vocabulary>> categoryVocabularyData = new Dictionary<char, List<Vocabulary>>();
+    // public Dictionary<char, List<Vocabulary>> categoryVocabularyData = new Dictionary<char, List<Vocabulary>>();
     public List<CategoryVocabulary> categoryVocabulary;
     #endregion
     public List<Vocabulary> vocabularyNotRepeated = new List<Vocabulary>();
@@ -43,7 +44,6 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
         #region Create Dictionary Vocabulary Data
         for (char _category = 'A'; _category <= 'Z'; _category++)
         {
-            categoryVocabularyData[_category] = new List<Vocabulary>();
             categoryVocabulary.Add(Resources.Load<CategoryVocabulary>(_category.ToString()));
         }
         #endregion
@@ -90,56 +90,56 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
         {
             if (_ct.name == _category.ToString())
             {
-                _ct.vocabularies.Add(_vocabulary);
+                _ct.vocabulary.Add(_vocabulary);
             }
         }
         #endregion
     }
 
-    void RemoveRepeatedVocabulary()
-    {
-        int tatalVocabulary = 0;
-        List<int> _repeatedVocabularyIndex = new List<int>();
-        for (char category = 'A'; category <= 'Z'; category++)//category a - z 
-        {
-            for (int sV = 0; sV < categoryVocabularyData[category].Count; sV++) //choose vocobulary
-            {
-                string _repeated = categoryVocabularyData[category][sV].vocabulary;
-                int categoryCount = categoryVocabularyData[category].Count;
-                for (int tV = sV; tV < categoryCount; tV++)//check repeated vocobulary
-                {
-                    if (sV != tV)
-                    {
-                        if (_repeated == categoryVocabularyData[category][tV].vocabulary)
-                        {
-                            _repeatedVocabularyIndex.Add(tV);
-                        }
-                    }
-                }
-                for (int r = _repeatedVocabularyIndex.Count - 1; r >= 0; r--)//remove repeated Vocabulary
-                {
-                    categoryVocabularyData[category].RemoveAt(_repeatedVocabularyIndex[r]);
-                }
-                _repeatedVocabularyIndex.Clear();
-            }
-            //Add vorabulary not have repeated
-            foreach (Vocabulary vcr in categoryVocabularyData[category])
-            {
-                vocabularyNotRepeated.Add(vcr);
-            }
-            tatalVocabulary += categoryVocabularyData[category].Count();
-        }
-        foreach (Vocabulary vcs in vocabularyNotRepeated)
-        {
-            testSaveText += vcs.vocabulary + "|" + vcs.reading + "|" + vcs.meaning + '\n';
-        }
-        // SaveStringListToFile("output.txt", testSaveText);
-        foreach (GameObject wi in waitGameStart)
-        {
-            wi.SetActive(true);
-        }
-        AudioManager._instance.PlayMusic("BGSound");
-    }
+    // void RemoveRepeatedVocabulary()
+    // {
+    //     int tatalVocabulary = 0;
+    //     List<int> _repeatedVocabularyIndex = new List<int>();
+    //     for (char category = 'A'; category <= 'Z'; category++)//category a - z 
+    //     {
+    //         for (int sV = 0; sV < categoryVocabularyData[category].Count; sV++) //choose vocobulary
+    //         {
+    //             string _repeated = categoryVocabularyData[category][sV].vocabulary;
+    //             int categoryCount = categoryVocabularyData[category].Count;
+    //             for (int tV = sV; tV < categoryCount; tV++)//check repeated vocobulary
+    //             {
+    //                 if (sV != tV)
+    //                 {
+    //                     if (_repeated == categoryVocabularyData[category][tV].vocabulary)
+    //                     {
+    //                         _repeatedVocabularyIndex.Add(tV);
+    //                     }
+    //                 }
+    //             }
+    //             for (int r = _repeatedVocabularyIndex.Count - 1; r >= 0; r--)//remove repeated Vocabulary
+    //             {
+    //                 categoryVocabularyData[category].RemoveAt(_repeatedVocabularyIndex[r]);
+    //             }
+    //             _repeatedVocabularyIndex.Clear();
+    //         }
+    //         //Add vorabulary not have repeated
+    //         foreach (Vocabulary vcr in categoryVocabularyData[category])
+    //         {
+    //             vocabularyNotRepeated.Add(vcr);
+    //         }
+    //         tatalVocabulary += categoryVocabularyData[category].Count();
+    //     }
+    //     foreach (Vocabulary vcs in vocabularyNotRepeated)
+    //     {
+    //         testSaveText += vcs.vocabulary + "|" + vcs.reading + "|" + vcs.meaning + '\n';
+    //     }
+    //     // SaveStringListToFile("output.txt", testSaveText);
+    //     foreach (GameObject wi in waitGameStart)
+    //     {
+    //         wi.SetActive(true);
+    //     }
+    //     AudioManager._instance.PlayMusic("BGSound");
+    // }
     // void SaveStringListToFile(string fileName, string list)
     // {
     //     // สร้าง path ที่จะบันทึกไฟล์
@@ -158,33 +158,36 @@ public class DataVocabularyManager : Singleton<DataVocabularyManager>
         {
             char _category = _vocabularyInput[0];
             _category = Char.ToUpper(_category);
-            foreach (Vocabulary cv in categoryVocabularyData[_category])
+            for (int allVocabulary = 0; allVocabulary < categoryVocabulary.Count; allVocabulary++)
             {
-                if (_vocabularyInput.ToUpper() == cv.vocabulary.ToUpper())
+                foreach (Vocabulary cv in categoryVocabulary[allVocabulary].vocabulary)
                 {
-                    // Debug.Log("เจอ");
-                    foreach (Vocabulary cvg in vocabularyInGame)
+                    if (_vocabularyInput.ToUpper() == cv.vocabulary.ToUpper())
                     {
-                        // Check repeated vocabulary in listVocabularyInGame
-                        if (_vocabularyInput.ToUpper() == cvg.vocabulary.ToUpper())
+                        // Debug.Log("เจอ");
+                        foreach (Vocabulary cvg in vocabularyInGame)
                         {
-                            _repeated = true;
+                            // Check repeated vocabulary in listVocabularyInGame
+                            if (_vocabularyInput.ToUpper() == cvg.vocabulary.ToUpper())
+                            {
+                                _repeated = true;
+                            }
                         }
+                        if (!_repeated)
+                        {
+                            // Debug.Log("not reperted");
+                            ControlGamePlay._instance.controlBoxLetters.OnhighlightBoxLetters(true);
+                            ControlGamePlay._instance.canAtk = true;
+                            findVocabulary = cv;
+                        }
+                        else
+                        {
+                            // Debug.Log("reperted");
+                            ControlGamePlay._instance.controlBoxLetters.OnhighlightBoxLetters(false);
+                        }
+                        // Debug.Log(d.vocabulary + " : " + d.reading + " : " + d.meaning);
+                        return;
                     }
-                    if (!_repeated)
-                    {
-                        // Debug.Log("not reperted");
-                        ControlGamePlay._instance.controlBoxLetters.OnhighlightBoxLetters(true);
-                        ControlGamePlay._instance.canAtk = true;
-                        findVocabulary = cv;
-                    }
-                    else
-                    {
-                        // Debug.Log("reperted");
-                        ControlGamePlay._instance.controlBoxLetters.OnhighlightBoxLetters(false);
-                    }
-                    // Debug.Log(d.vocabulary + " : " + d.reading + " : " + d.meaning);
-                    return;
                 }
             }
             // Debug.Log("ไม่เจอ");

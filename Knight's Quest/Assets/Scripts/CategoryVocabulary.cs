@@ -5,5 +5,5 @@ using UnityEngine;
 public class CategoryVocabulary : ScriptableObject
 {
     // public Dictionary<char, List<Vocabulary>> categoryVocabularyData = new Dictionary<char, List<Vocabulary>>();
-    public List<Vocabulary> vocabularies = new List<Vocabulary>();
+    public List<Vocabulary> vocabulary = new List<Vocabulary>();
 }
