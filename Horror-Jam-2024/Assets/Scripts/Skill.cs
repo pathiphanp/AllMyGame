@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum EffectSkill
 {
-    None,ArmorPiercing,ShieldBrake,BreakTheShield
+    None, ArmorPiercing, ShieldBrake, BreakTheShield,DodgeShields
 }
 [CreateAssetMenu(fileName = "Skill - ", menuName = "CreateSkill")]
 public class Skill : ScriptableObject
@@ -14,6 +14,8 @@ public class Skill : ScriptableObject
     public int damage;
     public EffectSkill effectSkill;
     public int cooldown;
-    [TextArea(1,5)]
+    public Sprite spriteSkillHaveShield;
+    public Sprite spriteSkillNotHaveShield;
+    [TextArea(1, 5)]
     public string description;
 }

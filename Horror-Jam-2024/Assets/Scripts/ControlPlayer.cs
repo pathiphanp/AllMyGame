@@ -6,9 +6,10 @@ public class ControlPlayer : MonoBehaviour
 {
     [Header("Part")]
     [SerializeField] PartData[] parts;
-
     [Header("Skill")]
     [SerializeField] public Skill[] skills;
+
+    
     void Start()
     {
         SetUpPart();

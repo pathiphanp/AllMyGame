@@ -4479,6 +4479,15 @@ MonoBehaviour:
     hpArmor: 0
     canUsePart: 1
     haveShield: 0
+  - namePart: Shield
+    partObject: {fileID: 2094206566}
+    part: {fileID: 11400000, guid: f2b67a9898bcec5448e8433e14f26c92, type: 2}
+    hpPart: 0
+    armorObject: {fileID: 0}
+    armor: {fileID: 0}
+    hpArmor: 0
+    canUsePart: 1
+    haveShield: 0
 --- !u!4 &936589873
 Transform:
   m_ObjectHideFlags: 0

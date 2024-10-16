@@ -16,4 +16,6 @@ MonoBehaviour:
   damage: 7
   effectSkill: 0
   cooldown: 2
-  description: aaaaaaaaaaaaaaaaaaaaa
+  spriteSkillHaveShield: {fileID: -948911995, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
+  spriteSkillNotHaveShield: {fileID: -1912206473, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
+  description: 

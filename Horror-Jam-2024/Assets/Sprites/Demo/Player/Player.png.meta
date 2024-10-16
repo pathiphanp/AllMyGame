@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_3
+      name: AxeDoubleSlashHaveShield
       rect:
         serializedVersion: 2
         x: 4627
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_4
+      name: AxeDoubleSlashNotHaveShield
       rect:
         serializedVersion: 2
         x: 7129
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_5
+      name: AxeSlashHaveShield
       rect:
         serializedVersion: 2
         x: 0
@@ -215,11 +215,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_6
+      name: AxeSlashNotHaveShield
       rect:
         serializedVersion: 2
         x: 1870
-        y: 10494
+        y: 10503
         width: 1134
         height: 1876
       alignment: 9
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_8
+      name: SwordSlashHaveShield
       rect:
         serializedVersion: 2
         x: 3550
@@ -257,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_9
+      name: SwordSlashNotHaveShield
       rect:
         serializedVersion: 2
         x: 5958
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_13
+      name: SwordCharge
       rect:
         serializedVersion: 2
         x: 0
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_14
+      name: SwordStab
       rect:
         serializedVersion: 2
         x: 2546
@@ -341,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_17
+      name: DargonBiteHaveShield
       rect:
         serializedVersion: 2
         x: 2546
@@ -362,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_18
+      name: DargonBiteNotHaveShield
       rect:
         serializedVersion: 2
         x: 5259
@@ -383,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_21
+      name: IdelHaveShield
       rect:
         serializedVersion: 2
         x: 2422
@@ -404,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_22
+      name: IdelNotHaveShield
       rect:
         serializedVersion: 2
         x: 4734
@@ -519,33 +519,33 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      AxeDoubleSlashHaveShield: 709656292
+      AxeDoubleSlashNotHaveShield: 1554015753
+      AxeSlashHaveShield: -948911995
+      AxeSlashNotHaveShield: -1912206473
+      DargonBiteHaveShield: 348390238
+      DargonBiteNotHaveShield: -1442486823
       Guard: -692873876
       GuardAttack: -151616697
+      IdelHaveShield: -810539405
+      IdelNotHaveShield: -1730587272
       Player_10: 990679631
       Player_11: -1921385068
       Player_12: -2091932667
-      Player_13: 1950983880
-      Player_14: 1279398899
       Player_15: 1876688082
       Player_16: -1494420373
-      Player_17: 348390238
-      Player_18: -1442486823
       Player_19: -1406621225
       Player_2: -616712484
       Player_20: -1696300243
-      Player_21: -810539405
-      Player_22: -1730587272
       Player_23: -1144135813
       Player_24: 1915622617
       Player_25: 401512566
       Player_26: 1369405730
-      Player_3: 709656292
-      Player_4: 1554015753
-      Player_5: -948911995
-      Player_6: -1912206473
       Player_7: 626088406
-      Player_8: -26313687
-      Player_9: 1671733543
+      SwordCharge: 1950983880
+      SwordSlashHaveShield: -26313687
+      SwordSlashNotHaveShield: 1671733543
+      SwordStab: 1279398899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
