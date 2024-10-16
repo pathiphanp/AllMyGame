@@ -63,11 +63,11 @@ public class ControlEnemy : MonoBehaviour
                 _damage *= 2;
 
             }
-            partTarget.hpArmor -= _damage;// 3 - 5 = -2 
+            partTarget.hpArmor -= _damage;
             if (partTarget.hpArmor < 0)
             {
                 _damage = Mathf.Abs(partTarget.hpArmor);
-                partTarget.hpPart -= _damage;
+                PartTakeDamage(partTarget, _damage);
                 partTarget.armor = null;
                 Destroy(partTarget.armorObject);
             }
@@ -76,8 +76,24 @@ public class ControlEnemy : MonoBehaviour
         }
         else//not have armor
         {
-            partTarget.hpPart -= _damage;
+            PartTakeDamage(partTarget, _damage);
         }
+    }
+    void PartTakeDamage(PartData _partTarget, int _damage)
+    {
+        _partTarget.hpPart -= _damage;
+        if (_partTarget.hpPart <= 0)
+        {
+            //Destroy part
+            PartDestroy(_partTarget);
+            //play action spawn enemy
+        }
+    }
+
+    void PartDestroy(PartData _partTarget)
+    {
+        _partTarget.canUsePart = false;
+        Destroy(_partTarget.partObject);
     }
 
 }

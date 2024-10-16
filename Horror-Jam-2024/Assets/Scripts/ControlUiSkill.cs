@@ -68,8 +68,11 @@ public class ControlUiSkill : MonoBehaviour
         if (countUiSkilloff == skillObject.Length)
         {
             uiSkill.SetActive(false);
-            ControlGamePlay._instance.partPlayerSelect.GetComponent<ControlPart>().StopBlinkEffect();
-            ControlGamePlay._instance.canSelectPart = true;
+            if (ControlGamePlay._instance.partPlayerSelect != null)
+            {
+                ControlGamePlay._instance.partPlayerSelect.GetComponent<ControlPart>().StopBlinkEffect();
+                ControlGamePlay._instance.canSelectPart = true;
+            }
             countUiSkilloff = 0;
         }
     }

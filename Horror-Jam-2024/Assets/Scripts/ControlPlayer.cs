@@ -44,4 +44,5 @@ public class ControlPlayer : MonoBehaviour
     {
         ControlGamePlay._instance.controlEnemy.TakeDamage(skill.damage,skill.effectSkill,ControlGamePlay._instance.partPlayerSelect);
     }
+    
 }
