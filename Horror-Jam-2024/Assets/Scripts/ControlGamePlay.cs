@@ -45,15 +45,17 @@ public class ControlGamePlay : Singleton<ControlGamePlay>
     }
     IEnumerator CallStartGamePlay()
     {
-        OffMouseControl();
         controlUI.cutScenes.SetActive(true);
-        yield return new WaitForSeconds(waitDescriptionGame);
+        yield return true;
+    }
+    public void EndCutScenes()
+    {
+        OffMouseControl();
         controlUI.cutScenes.SetActive(false);
         PlayerTurn();
     }
-
     //Player Turn
-    void PlayerTurn()
+    public void PlayerTurn()
     {
         if (!playerIsDie)
         {
@@ -139,10 +141,11 @@ public class ControlGamePlay : Singleton<ControlGamePlay>
         if (_skill.effectSkill == EffectSkill.DodgeShields)
         {
             EffectSkill _effskill = EffectSkill.None;
+            int _damage = _skill.damage;
             for (int i = 0; i < 2; i++)
             {
-                controlEnemy.TakeDamage(_skill.damage, _effskill, ControlGamePlay._instance.partPlayerSelect);
-                _skill.damage /= 2;
+                controlEnemy.TakeDamage(_damage, _effskill, ControlGamePlay._instance.partPlayerSelect);
+                _damage /= 2;
                 _effskill = EffectSkill.DodgeShields;
                 yield return new WaitForSeconds(0.5f);
                 StopCoroutine(controlUI.callShowDamage);

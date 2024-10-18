@@ -38,8 +38,8 @@ public class ControlPlayer : MonoBehaviour
     [Header("Debuff")]
     [HideInInspector] public bool isStun = false;
 
-
-
+    bool onClickShowUI = false;
+    Coroutine callShowStatusPlayer;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -152,10 +152,9 @@ public class ControlPlayer : MonoBehaviour
         bool isWeakness = false;
 
         int chanceDodge = 10;
-        Debug.Log(_effectSkill);
         if (useShiled && _effectSkill != EffectSkill.DodgeShields)
         {
-            Debug.Log("useShiled");
+            // Debug.Log("useShiled");
             useShiled = false;
             _partTarget = shieldPart;
             _partTarget.hpPart -= _damage;
@@ -251,18 +250,27 @@ public class ControlPlayer : MonoBehaviour
         }
         return null;
     }
-
     private void OnMouseEnter()
     {
         if (ControlGamePlay._instance.canShowPlayerStatus)
         {
             ControlGamePlay._instance.controlUI.ShowPlayerStatus();
             ControlGamePlay._instance.controlUI.SetShowPlayerStatus(true);
+            if (callShowStatusPlayer != null)
+            {
+                StopCoroutine(callShowStatusPlayer);
+            }
         }
     }
     private void OnMouseExit()
     {
+        callShowStatusPlayer = StartCoroutine(DelayOffPlayerStatus());
+    }
+    IEnumerator DelayOffPlayerStatus()
+    {
+        yield return new WaitForSeconds(0.5f);
         ControlGamePlay._instance.controlUI.SetShowPlayerStatus(false);
+        callShowStatusPlayer = null;
     }
 
     public void ReturnToIdel()

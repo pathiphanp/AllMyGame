@@ -163,6 +163,7 @@ public class ControlEnemy : MonoBehaviour
             float[] weightsArmAndLeg = { 0.7f, 0.15f, 0.15f };
             float[] weightsLeg = { 0.5f, 0.5f };
             float[] weightsHeadAndBody = { 0.5f, 0.5f };
+            Debug.Log(countLegPlayer);
             if (countLegPlayer == 2)
             {
                 if (armLeft)
@@ -200,7 +201,7 @@ public class ControlEnemy : MonoBehaviour
                 body.partObject.GetComponent<SpriteRenderer>().sprite = biteSkill.spriteSkillHaveShield;
                 int rndCanUseSkill = Random.Range(0, 101);
                 int _damage = 9;
-                if (rndCanUseSkill > 95)
+                if (rndCanUseSkill > 90)
                 {
                     _damage *= 2;
                 }
@@ -248,27 +249,22 @@ public class ControlEnemy : MonoBehaviour
             chanceDodge += 10;
         }
         //find part
+        partTarget = FindEnemyPart(_part.name);
+        if (partTarget.namePart == "Heart")
+        {
+            if (FindEnemyPart("ArmLeftMid").canUsePart)
+            {
+                partTarget = FindEnemyPart("ArmLeftMid");
+            }
+            else if (FindEnemyPart("ArmRightMid").canUsePart)
+            {
+                partTarget = FindEnemyPart("ArmRightMid");
+            }
+        }
+        Debug.Log(partTarget.namePart);
+        partShield = FindEnemyPart("Shield");
         foreach (PartData pD in parts)
         {
-            if (pD.namePart == _part.name)
-            {
-                partTarget = pD;
-                if (partTarget.namePart == "Heart")//if part heart check armMid
-                {
-                    if (pD.namePart == "ArmLeftMid" && pD.canUsePart)
-                    {
-                        partTarget = pD;
-                    }
-                    else if (pD.namePart == "ArmRightMid" && pD.canUsePart)
-                    {
-                        partTarget = pD;
-                    }
-                }
-            }
-            if (pD.part.typePart[0] == TypePart.Shield)
-            {
-                partShield = pD;
-            }
             foreach (TypePart tyP in pD.part.typePart)
             {
                 if (tyP == TypePart.Leg && pD.canUsePart)
@@ -304,7 +300,6 @@ public class ControlEnemy : MonoBehaviour
                 _effectSkill = EffectSkill.DodgeShields;
             }
         }
-        Debug.Log(_effectSkill);
         //if use skill shield
         if (partTarget.haveShield && _effectSkill != EffectSkill.DodgeShields)
         {
@@ -316,12 +311,15 @@ public class ControlEnemy : MonoBehaviour
             partTarget = partShield;
         }
         Debug.Log(partTarget.namePart);
+        Debug.Log(rndhitChance + " = rnd |" + chanceDodge + " = chan");
         if (rndhitChance > chanceDodge)
         {
+            Debug.Log("Get Hit");
             PartTakeDamage(partTarget, _effectSkill, _damage);
         }
         else
         {
+            Debug.Log("Dodge");
             ControlGamePlay._instance.controlUI.ShowDamageUI(0, "");
         }
     }

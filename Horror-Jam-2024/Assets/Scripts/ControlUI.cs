@@ -17,6 +17,7 @@ public class ControlUI : MonoBehaviour
 
     [Header("CutScenes")]
     [SerializeField] public GameObject cutScenes;
+    [SerializeField] public Button btnSkip;
 
     [Header("UI Turn")]
     [SerializeField] GameObject showTurn;
@@ -45,7 +46,7 @@ public class ControlUI : MonoBehaviour
         attackBtn.onClick.AddListener(ControlGamePlay._instance.PlayerChoosePartMode);
         defendBtn.onClick.AddListener(ControlGamePlay._instance.PlayerDefendMode);
         resetGame.onClick.AddListener(ControlGamePlay._instance.ResetGame);
-
+        btnSkip.onClick.AddListener(ControlGamePlay._instance.EndCutScenes);
     }
 
     public void ShowUiTurn(bool _status, string _Description)
