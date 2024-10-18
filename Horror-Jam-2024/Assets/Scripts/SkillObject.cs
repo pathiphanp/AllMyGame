@@ -8,12 +8,12 @@ public class SkillObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public bool cancelSkill;
     public Skill skill;
 
-    public void MoveToTarget(Vector3 _target, bool _end)
+    public void MoveToTarget(Vector3 _target, bool _end, bool _resetSelect)
     {
         _target.z = 0;
-        StartCoroutine(CallStartMoveToTarget(_target, _end));
+        StartCoroutine(CallStartMoveToTarget(_target, _end, _resetSelect));
     }
-    IEnumerator CallStartMoveToTarget(Vector3 _target, bool _end)
+    IEnumerator CallStartMoveToTarget(Vector3 _target, bool _end, bool _resetSelect)
     {
         while (gameObject.transform.position != _target)
         {
@@ -25,7 +25,7 @@ public class SkillObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         gameObject.GetComponent<RectTransform>().localPosition = newPosition;
         if (_end)
         {
-            controlUiSkill.CheckOffAllUiSkill();
+            controlUiSkill.CheckOffAllUiSkill(_resetSelect);
         }
         yield break;
     }
@@ -33,11 +33,13 @@ public class SkillObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     {
         if (cancelSkill)
         {
-            controlUiSkill.CancelSkill();
+            controlUiSkill.CancelSkill(true);
         }
         else
         {
-            ControlGamePlay._instance.controlPlayer.PlayerAttack(skill);
+            controlUiSkill.CancelSkill(false);
+            ControlGamePlay._instance.OffMouseControl();
+            ControlGamePlay._instance.PlayerAttack(skill);
         }
     }
 
@@ -46,7 +48,7 @@ public class SkillObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         // Debug.Log("Show Skill info");
         if (skill != null)
         {
-            controlUiSkill.ShowInfoSkill(skill.damage.ToString(), skill.effectSkill.ToString(), skill.cooldown.ToString(), skill.description);
+            controlUiSkill.ShowInfoSkill(skill.name, skill.damage.ToString(), skill.effectSkill.ToString(), skill.cooldown.ToString(), skill.description);
         }
     }
 

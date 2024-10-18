@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2eb65c97d1833428cdf145524ba280, type: 3}
   m_Name: Part - Head
   m_EditorClassIdentifier: 
-  typePart: 0
+  typePart: 0000000006000000
   hp: 50

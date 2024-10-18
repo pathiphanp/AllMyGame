@@ -14,6 +14,17 @@ public class ControlPart : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
+    private void OnMouseEnter()
+    {
+        if (ControlGamePlay._instance.canSelectPart)
+        {
+            spriteRenderer.color = Color.red;
+        }
+    }
+    private void OnMouseExit()
+    {
+        spriteRenderer.color = Color.white;
+    }
     private void OnMouseUp()
     {
         if (ControlGamePlay._instance.canSelectPart)
@@ -33,12 +44,14 @@ public class ControlPart : MonoBehaviour
         {
             StopCoroutine(blinkEffect);
             blinkEffect = null;
+            spriteRenderer.color = Color.white;
         }
         spriteRenderer.enabled = true;
     }
 
     IEnumerator CallBlinkEffect()
     {
+        spriteRenderer.color = Color.red;
         bool startEff = true;
         while (startEff)
         {

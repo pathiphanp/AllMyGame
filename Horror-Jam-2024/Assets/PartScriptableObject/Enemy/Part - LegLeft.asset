@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2eb65c97d1833428cdf145524ba280, type: 3}
   m_Name: Part - LegLeft
   m_EditorClassIdentifier: 
-  typePart: 03000000
-  hp: 300
+  typePart: 02000000
+  hp: 200

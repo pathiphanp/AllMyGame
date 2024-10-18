@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da32f0860151e540ab91579692e9fad, type: 3}
+  m_Name: AxeDoubleSlash
+  m_EditorClassIdentifier: 
+  iconSkill: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  damage: 12
+  effectSkill: 4
+  cooldown: 2
+  spriteSkillHaveShield: {fileID: 709656292, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
+  spriteSkillNotHaveShield: {fileID: 1554015753, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
+  description: "\u0E08\u0E30\u0E42\u0E08\u0E21\u0E15\u0E352\u0E04\u0E23\u0E31\u0E49\u0E07
+    \u0E01\u0E32\u0E23\u0E42\u0E08\u0E21\u0E15\u0E35\u0E04\u0E23\u0E31\u0E49\u0E07\u0E17\u0E35\u0E48
+    2 \u0E08\u0E30\u0E1C\u0E48\u0E32\u0E19\u0E42\u0E25\u0E48\u0E01\u0E32\u0E23\u0E42\u0E25\u0E48\u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19\nAttacks
+    twice. The second attack passes through the shield."

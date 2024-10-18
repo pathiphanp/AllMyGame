@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum TypePart
 {
-    Head,ArmLeft,ArmRight,LegLeft,LegRight,Body,Weapon,Armor,Weakness,Shield
+    Head,Arm,Leg,Body,Weapon,Armor,Weakness,Shield
 }
 [CreateAssetMenu(fileName = "Part - ", menuName = "CreatePart")]
 public class Part : ScriptableObject
