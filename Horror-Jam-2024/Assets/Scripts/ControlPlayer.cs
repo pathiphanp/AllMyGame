@@ -37,8 +37,6 @@ public class ControlPlayer : MonoBehaviour
 
     [Header("Debuff")]
     [HideInInspector] public bool isStun = false;
-
-    bool onClickShowUI = false;
     Coroutine callShowStatusPlayer;
     void Start()
     {

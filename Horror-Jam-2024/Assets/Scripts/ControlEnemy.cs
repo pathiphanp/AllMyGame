@@ -25,6 +25,7 @@ public class ControlEnemy : MonoBehaviour
 
     [Header("Count Turn")]
     int countTurn;
+    int swordTurn = 4;
     int countDog;
 
     private void Start()
@@ -85,7 +86,7 @@ public class ControlEnemy : MonoBehaviour
             }
             return;
         }
-        else if (countTurn == 5)
+        else if (countTurn == swordTurn)
         {
             bool canUseSkill = false;
             // Debug.Log("Use BigSword");
@@ -96,7 +97,7 @@ public class ControlEnemy : MonoBehaviour
             }
             if (armRightTop.canUsePart)
             {
-                armLeftTop.partObject.GetComponent<SpriteRenderer>().sprite = bigSwordSkill.spriteSkillNotHaveShield;
+                armRightTop.partObject.GetComponent<SpriteRenderer>().sprite = bigSwordSkill.spriteSkillNotHaveShield;
                 canUseSkill = true;
             }
             //Use Skill CutPart
@@ -236,17 +237,12 @@ public class ControlEnemy : MonoBehaviour
     {
         PartData partTarget = null;
         PartData partShield = null;
-        int chanceDodge = 5;
-        int countLeg = 0;
+        int chanceDodge = AccuracyPlayer(_effectSkill);
         if (_effectSkill == EffectSkill.BreakWeapon)
         {
             ControlPlayer cP = ControlGamePlay._instance.controlPlayer;
             cP.FindPartInPlayer("Sword").canUsePart = false;
             cP.AddPartsToRespawnStatus(cP.FindPartInPlayer("Sword"), 3);
-        }
-        if (_effectSkill == EffectSkill.WeaponWeaknes)
-        {
-            chanceDodge += 10;
         }
         //find part
         partTarget = FindEnemyPart(_part.name);
@@ -261,36 +257,7 @@ public class ControlEnemy : MonoBehaviour
                 partTarget = FindEnemyPart("ArmRightMid");
             }
         }
-        Debug.Log(partTarget.namePart);
         partShield = FindEnemyPart("Shield");
-        foreach (PartData pD in parts)
-        {
-            foreach (TypePart tyP in pD.part.typePart)
-            {
-                if (tyP == TypePart.Leg && pD.canUsePart)
-                {
-                    countLeg++;
-                }
-            }
-        }
-        foreach (TypePart tyP in partTarget.part.typePart)
-        {
-            if (tyP == TypePart.Head)//player attack head
-            {
-                if (countLeg == 2)
-                {
-                    chanceDodge += 80;
-                }
-                else if (countLeg == 1)
-                {
-                    chanceDodge += 40;
-                }
-            }
-            if (tyP == TypePart.Leg)//player attack Leg
-            {
-                chanceDodge += 30;
-            }
-        }
         int rndhitChance = Random.Range(0, 101);
         if (_effectSkill == EffectSkill.ChangeDodgeShields)
         {
@@ -386,5 +353,35 @@ public class ControlEnemy : MonoBehaviour
         ChangeSpritePart(FindEnemyPart("ArmRightTop"), armTopIdelSkill.spriteSkillNotHaveShield);
         ChangeSpritePart(FindEnemyPart("Shield"), armUnderIdelSkill.spriteSkillHaveShield);
         ChangeSpritePart(FindEnemyPart("ArmRightUnder"), armUnderIdelSkill.spriteSkillNotHaveShield);
+    }
+
+    public int AccuracyPlayer(EffectSkill _effectSkill)
+    {
+        PartData _PartTarget = FindEnemyPart(ControlGamePlay._instance.partPlayerSelect.name);
+        int accuracy = 5;
+        bool[] legCheck = { FindEnemyPart("LegLeft").canUsePart, FindEnemyPart("LegRight").canUsePart };
+        int legCount = 0;
+        for (int i = 0; i < legCheck.Length; i++)
+        {
+            if (legCheck[i])
+            {
+                legCount++;
+            }
+        }
+        if (_PartTarget.part.typePart[0] == TypePart.Head)
+        {
+            accuracy += legCount * 40;
+        }
+        if (_PartTarget.part.typePart[0] == TypePart.Leg)
+        {
+            accuracy += 30;
+        }
+
+        if (_effectSkill == EffectSkill.WeaponWeaknes)
+        {
+            accuracy += 10;
+        }
+
+        return accuracy;
     }
 }

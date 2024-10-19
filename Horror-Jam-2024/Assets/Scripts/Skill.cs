@@ -13,7 +13,7 @@ public class Skill : ScriptableObject
     public Sprite iconSkill;
     public int damage;
     public EffectSkill effectSkill;
-    public int cooldown;
+    public int accuract;
     public Sprite spriteSkillHaveShield;
     public Sprite spriteSkillNotHaveShield;
     [TextArea(1, 5)]

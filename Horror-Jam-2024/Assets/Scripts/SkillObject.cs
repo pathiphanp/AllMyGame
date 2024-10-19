@@ -48,7 +48,8 @@ public class SkillObject : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         // Debug.Log("Show Skill info");
         if (skill != null)
         {
-            controlUiSkill.ShowInfoSkill(skill.name, skill.damage.ToString(), skill.effectSkill.ToString(), skill.cooldown.ToString(), skill.description);
+            skill.accuract = 100 - ControlGamePlay._instance.controlEnemy.AccuracyPlayer(skill.effectSkill);
+            controlUiSkill.ShowInfoSkill(skill.name, skill.damage.ToString(), skill.effectSkill.ToString(), skill.accuract.ToString(), skill.description);
         }
     }
 

@@ -18,6 +18,7 @@ public class ControlUiSkill : MonoBehaviour
     [SerializeField] TMP_Text nameSkillText;
     [SerializeField] TMP_Text damageText;
     [SerializeField] TMP_Text effectText;
+    [SerializeField] TMP_Text accuracyText;
     [SerializeField] TMP_Text descriptionText;
 
     void Start()
@@ -81,11 +82,12 @@ public class ControlUiSkill : MonoBehaviour
         }
     }
 
-    public void ShowInfoSkill(string _nameSkill, string _damage, string _effect, string _cooldown, string _description)
+    public void ShowInfoSkill(string _nameSkill, string _damage, string _effect, string _accuracy, string _description)
     {
         nameSkillText.text = _nameSkill;
         damageText.text = _damage;
         effectText.text = _effect;
+        accuracyText.text = _accuracy + "%";
         descriptionText.text = _description;
         infoSkill.SetActive(true);
     }
