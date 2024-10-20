@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Warp
+  - Water
+  - Star
+  - Enemy
+  - Platfrom
+  - Mushroom
+  - Door
+  - Key
+  - Start
+  - End
+  - Heal
+  - Ground
+  - Bird
+  - HealAll
+  - BuffJump
+  - Immortal
+  - DodamageBoss
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - CheckUnderPlayer
+  - Ground
+  - BG
+  - Player
+  - Enemy
+  - Platfrom
+  - HeadEnemy
+  - GroundEnemy
+  - EnemyBody
+  - PlayerBody
+  - Star
+  - Key
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Bg
+    uniqueID: 3788812285
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BoxMap
+    uniqueID: 1094498071
+    locked: 0
+  - name: Wepon
+    uniqueID: 3614141581
+    locked: 0
+  - name: Hand
+    uniqueID: 2430077975
+    locked: 0
