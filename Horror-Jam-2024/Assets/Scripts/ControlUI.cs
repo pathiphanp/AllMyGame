@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Cinemachine;
+using Unity.VisualScripting;
 
 public class ControlUI : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class ControlUI : MonoBehaviour
     [SerializeField] public GameObject enemyWin;
     [SerializeField] Button resetGame;
 
+
+    [Header("Part")]
+    ControlPart partObj;
+
     private void Start()
     {
         attackBtn.onClick.AddListener(ControlGamePlay._instance.PlayerChoosePartMode);
@@ -70,11 +75,24 @@ public class ControlUI : MonoBehaviour
         lookAtPlayerStatusCamera.SetActive(false);
         lookAtEnemyAttackCamera.SetActive(false);
     }
-    public void ShowDamageUI(int _damage, string _nameParts)
+    public void ShowDamageUI(int _damage, string _nameParts, ControlPart _partObj)
     {
-        callShowDamage = StartCoroutine(StartShowDamageUI(_damage, _nameParts));
+        if (callShowDamage != null)
+        {
+            if (partObj != null)
+            {
+                partObj.StopBlinkEffect();
+                if (_partObj != null)
+                {
+                    _partObj.BlinkEffect();
+                }
+            }
+            StopCoroutine(callShowDamage);
+        }
+        callShowDamage = StartCoroutine(StartShowDamageUI(_damage, _nameParts, _partObj));
+        partObj = _partObj;
     }
-    IEnumerator StartShowDamageUI(int _damage, string _nameParts)
+    IEnumerator StartShowDamageUI(int _damage, string _nameParts, ControlPart _partObj)
     {
         string report = "";
         if (_damage == 0)
@@ -91,6 +109,10 @@ public class ControlUI : MonoBehaviour
         }
         showDamage.SetActive(true);
         yield return new WaitForSeconds(ControlGamePlay._instance.waitEndAttack);
+        if (_partObj != null)
+        {
+            _partObj.StopBlinkEffect();
+        }
         showDamage.SetActive(false);
     }
 

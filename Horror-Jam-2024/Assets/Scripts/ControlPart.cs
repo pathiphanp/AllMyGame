@@ -23,7 +23,10 @@ public class ControlPart : MonoBehaviour
     }
     private void OnMouseExit()
     {
-        spriteRenderer.color = Color.white;
+        if (ControlGamePlay._instance.canSelectPart)
+        {
+            spriteRenderer.color = Color.white;
+        }
     }
     private void OnMouseUp()
     {
@@ -42,7 +45,7 @@ public class ControlPart : MonoBehaviour
     {
         if (blinkEffect != null)
         {
-            StopCoroutine(blinkEffect);
+            // StopCoroutine(blinkEffect);
             blinkEffect = null;
             spriteRenderer.color = Color.white;
         }
@@ -52,7 +55,7 @@ public class ControlPart : MonoBehaviour
     IEnumerator CallBlinkEffect()
     {
         spriteRenderer.color = Color.red;
-        bool startEff = true;
+        /*bool startEff = true;
         while (startEff)
         {
             spriteRenderer.enabled = false;
@@ -60,6 +63,7 @@ public class ControlPart : MonoBehaviour
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(speedBlinkEffect / 2);
             yield return true;
-        }
+        }*/
+        yield return true;
     }
 }

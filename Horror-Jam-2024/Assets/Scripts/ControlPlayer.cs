@@ -156,7 +156,7 @@ public class ControlPlayer : MonoBehaviour
             useShiled = false;
             _partTarget = shieldPart;
             _partTarget.hpPart -= _damage;
-            ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart);
+            ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart, null);
         }
         else
         {
@@ -187,7 +187,7 @@ public class ControlPlayer : MonoBehaviour
             if (rndhitChance > chanceDodge)
             {
                 _partTarget.hpPart -= _damage;
-                ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart);
+                ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart,null);
                 if (_effectSkill == EffectSkill.Stun && !useShiled)
                 {
                     isStun = true;
@@ -195,7 +195,7 @@ public class ControlPlayer : MonoBehaviour
             }
             else
             {
-                ControlGamePlay._instance.controlUI.ShowDamageUI(0, "");
+                ControlGamePlay._instance.controlUI.ShowDamageUI(0, "",null);
             }
         }
         if (_partTarget.hpPart <= 0)

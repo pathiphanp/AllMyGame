@@ -72,9 +72,9 @@ public class ControlUiSkill : MonoBehaviour
             uiSkill.SetActive(false);
             if (ControlGamePlay._instance.partPlayerSelect != null)
             {
-                ControlGamePlay._instance.partPlayerSelect.GetComponent<ControlPart>().StopBlinkEffect();
                 if (_resetSelect)
                 {
+                    ControlGamePlay._instance.partPlayerSelect.GetComponent<ControlPart>().StopBlinkEffect();
                     ControlGamePlay._instance.canSelectPart = true;
                 }
             }

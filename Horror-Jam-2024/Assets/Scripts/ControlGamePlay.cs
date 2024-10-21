@@ -148,9 +148,6 @@ public class ControlGamePlay : Singleton<ControlGamePlay>
                 _damage /= 2;
                 _effskill = EffectSkill.DodgeShields;
                 yield return new WaitForSeconds(0.5f);
-                StopCoroutine(controlUI.callShowDamage);
-                controlUI.showDamage.SetActive(false);
-                yield return new WaitForSeconds(0.25f);
             }
         }
         else

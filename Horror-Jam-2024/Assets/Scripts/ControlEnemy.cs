@@ -164,7 +164,7 @@ public class ControlEnemy : MonoBehaviour
             float[] weightsArmAndLeg = { 0.7f, 0.15f, 0.15f };
             float[] weightsLeg = { 0.5f, 0.5f };
             float[] weightsHeadAndBody = { 0.5f, 0.5f };
-            Debug.Log(countLegPlayer);
+            // Debug.Log(countLegPlayer);
             if (countLegPlayer == 2)
             {
                 if (armLeft)
@@ -248,6 +248,7 @@ public class ControlEnemy : MonoBehaviour
         partTarget = FindEnemyPart(_part.name);
         if (partTarget.namePart == "Heart")
         {
+            _part.GetComponent<ControlPart>().StopBlinkEffect();
             if (FindEnemyPart("ArmLeftMid").canUsePart)
             {
                 partTarget = FindEnemyPart("ArmLeftMid");
@@ -256,6 +257,7 @@ public class ControlEnemy : MonoBehaviour
             {
                 partTarget = FindEnemyPart("ArmRightMid");
             }
+            partTarget.partObject.GetComponent<ControlPart>().BlinkEffect();
         }
         partShield = FindEnemyPart("Shield");
         int rndhitChance = Random.Range(0, 101);
@@ -270,15 +272,17 @@ public class ControlEnemy : MonoBehaviour
         //if use skill shield
         if (partTarget.haveShield && _effectSkill != EffectSkill.DodgeShields)
         {
+            _part.GetComponent<ControlPart>().StopBlinkEffect();
             foreach (PartData pD in parts)
             {
                 pD.haveShield = false;
             }
             ChangeSpritePart(FindEnemyPart("Shield"), guardSkill.spriteSkillHaveShield);
             partTarget = partShield;
+            partTarget.partObject.GetComponent<ControlPart>().BlinkEffect();
         }
-        Debug.Log(partTarget.namePart);
-        Debug.Log(rndhitChance + " = rnd |" + chanceDodge + " = chan");
+        // Debug.Log(partTarget.namePart);
+        // Debug.Log(rndhitChance + " = rnd |" + chanceDodge + " = chan");
         if (rndhitChance > chanceDodge)
         {
             Debug.Log("Get Hit");
@@ -287,7 +291,7 @@ public class ControlEnemy : MonoBehaviour
         else
         {
             Debug.Log("Dodge");
-            ControlGamePlay._instance.controlUI.ShowDamageUI(0, "");
+            ControlGamePlay._instance.controlUI.ShowDamageUI(0, "", partTarget.partObject.GetComponent<ControlPart>());
         }
     }
     void PartTakeDamage(PartData _partTarget, EffectSkill _effectSkill, int _damage)
@@ -309,7 +313,7 @@ public class ControlEnemy : MonoBehaviour
             }
         }
         _partTarget.hpPart -= _damage;
-        ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart);//ShowDamage
+        ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart, _partTarget.partObject.GetComponent<ControlPart>());//ShowDamage
         if (_partTarget.hpPart <= 0)
         {
             if (isWeakness)
