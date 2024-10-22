@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SetSaveSlot : MonoBehaviour
 {
-    [SerializeField] List<GameObject> slodSave = new List<GameObject>();
-    [SerializeField] List<SetSave> _slodSave = new List<SetSave>();
+    List<GameObject> slodSave = new List<GameObject>();
+    List<SetSave> _slodSave = new List<SetSave>();
     [HideInInspector] public int indexSave = 0;
     public bool firstRead = true;
     [HideInInspector] public bool selectSave = true;

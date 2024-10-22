@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CGE381.sln"
+    "dotnet.defaultSolution": "Remake-Game-alice-in-wonderland-2000-game-Boy.sln"
 }

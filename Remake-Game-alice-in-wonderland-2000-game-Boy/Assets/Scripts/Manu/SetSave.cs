@@ -9,9 +9,9 @@ using TMPro;
 public class SetSave : MonoBehaviour
 {
     [SerializeField] public int slotNum;
-    [SerializeField] public SetSaveSlot setSaveSlot;
+    [HideInInspector] public SetSaveSlot setSaveSlot;
     [SerializeField] GameObject defaultname;
-    [SerializeField] TMP_Text namePlayer;
+    [HideInInspector] TMP_Text namePlayer;
     [SerializeField] SystemSlotName[] systemName;
     [SerializeField] public int indexName = 0;
     public GameObject bg_select;
