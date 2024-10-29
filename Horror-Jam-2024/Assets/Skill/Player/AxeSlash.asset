@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AxeSlash
   m_EditorClassIdentifier: 
   iconSkill: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  damage: 12
+  damage: 9999
   effectSkill: 5
-  cooldown: 2
+  accuract: 65
   spriteSkillHaveShield: {fileID: -948911995, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
   spriteSkillNotHaveShield: {fileID: -1912206473, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
   description: "\u0E17\u0E33\u0E14\u0E32\u0E40\u0E21\u0E08\u0E43\u0E2A\u0E48\u0E02\u0E32

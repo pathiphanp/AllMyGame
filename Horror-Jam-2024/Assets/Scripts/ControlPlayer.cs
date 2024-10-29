@@ -149,7 +149,7 @@ public class ControlPlayer : MonoBehaviour
     {
         bool isWeakness = false;
 
-        int chanceDodge = 10;
+        int chanceDodge = 5;
         if (useShiled && _effectSkill != EffectSkill.DodgeShields)
         {
             // Debug.Log("useShiled");
@@ -183,19 +183,25 @@ public class ControlPlayer : MonoBehaviour
                 }
             }
             //Chance To dodge
-            int rndhitChance = Random.Range(0, 101);
-            if (rndhitChance > chanceDodge)
+
+            bool canDodge = RandomChance._instance.GetRandomChance(chanceDodge);
+            if (_effectSkill == EffectSkill.CannotDodge)
+            {
+                canDodge = false;
+            }
+            if (canDodge)
+            {
+                ControlGamePlay._instance.controlUI.ShowDamageUI(0, "", null);
+
+            }
+            else
             {
                 _partTarget.hpPart -= _damage;
-                ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart,null);
+                ControlGamePlay._instance.controlUI.ShowDamageUI(_damage, _partTarget.namePart, null);
                 if (_effectSkill == EffectSkill.Stun && !useShiled)
                 {
                     isStun = true;
                 }
-            }
-            else
-            {
-                ControlGamePlay._instance.controlUI.ShowDamageUI(0, "",null);
             }
         }
         if (_partTarget.hpPart <= 0)

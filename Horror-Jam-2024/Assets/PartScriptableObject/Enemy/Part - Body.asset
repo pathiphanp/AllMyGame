@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Part - Body
   m_EditorClassIdentifier: 
   typePart: 0300000006000000
-  hp: 500
+  hp: 300

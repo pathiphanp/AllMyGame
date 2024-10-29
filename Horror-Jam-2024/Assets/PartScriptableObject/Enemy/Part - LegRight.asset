@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Part - LegRight
   m_EditorClassIdentifier: 
   typePart: 02000000
-  hp: 200
+  hp: 120

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Part - ArmRightMid
   m_EditorClassIdentifier: 
   typePart: 01000000
-  hp: 300
+  hp: 150

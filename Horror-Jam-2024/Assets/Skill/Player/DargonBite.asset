@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: DargonBite
   m_EditorClassIdentifier: 
   iconSkill: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  damage: 15
+  damage: 30
   effectSkill: 9
-  cooldown: 2
+  accuract: 0
   spriteSkillHaveShield: {fileID: 348390238, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
   spriteSkillNotHaveShield: {fileID: -1442486823, guid: 7b00fb995a3594c4aa842fd23b395dc0, type: 3}
   description: "\u0E08\u0E30\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E2D\u0E31\u0E15\u0E23\u0E01\u0E32\u0E23\u0E2B\u0E25\u0E1A
-    \u0E43\u0E2B\u0E49\u0E28\u0E31\u0E15\u0E23\u0E39 10%\nIncreases the enemy's dodge
-    rate by 10%."
+    \u0E43\u0E2B\u0E49\u0E28\u0E31\u0E15\u0E23\u0E39 20%\nIncreases the enemy's dodge
+    rate by 20%."

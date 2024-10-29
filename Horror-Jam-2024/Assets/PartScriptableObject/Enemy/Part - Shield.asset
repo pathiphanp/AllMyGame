@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Part - Shield
   m_EditorClassIdentifier: 
   typePart: 07000000
-  hp: 350
+  hp: 150

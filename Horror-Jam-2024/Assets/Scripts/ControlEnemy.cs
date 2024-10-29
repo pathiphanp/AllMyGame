@@ -25,7 +25,8 @@ public class ControlEnemy : MonoBehaviour
 
     [Header("Count Turn")]
     int countTurn;
-    int swordTurn = 4;
+    int swordTurn = 3;
+    int headbuttTurn = 6;
     int countDog;
 
     private void Start()
@@ -106,12 +107,12 @@ public class ControlEnemy : MonoBehaviour
                 if (playerPartTarget.Count > 0)
                 {
                     int rndPart = Random.Range(0, playerPartTarget.Count);
-                    ControlGamePlay._instance.EnemyAttack(9999, EffectSkill.None, playerPartTarget[rndPart]);
+                    ControlGamePlay._instance.EnemyAttack(9999, EffectSkill.CannotDodge, playerPartTarget[rndPart]);
                 }
             }
             return;
         }
-        else if (countTurn == 8)
+        else if (countTurn == headbuttTurn)
         {
             // Debug.Log("Use Headbutt");
             head.partObject.SetActive(false);
@@ -188,9 +189,9 @@ public class ControlEnemy : MonoBehaviour
             if (canUseSmallSword)
             {
                 armRightUnder.partObject.GetComponent<SpriteRenderer>().sprite = smallSwordSkill.spriteSkillHaveShield;
-                int rndCanUseSkill = Random.Range(0, 101);
+                bool rndCanUseSkill = RandomChance._instance.GetRandomChance(10);
                 EffectSkill _effectSkill = EffectSkill.None;
-                if (rndCanUseSkill > 90)
+                if (rndCanUseSkill)
                 {
                     _effectSkill = EffectSkill.DodgeShields;
                 }
@@ -200,9 +201,9 @@ public class ControlEnemy : MonoBehaviour
             {
                 head.partObject.SetActive(false);
                 body.partObject.GetComponent<SpriteRenderer>().sprite = biteSkill.spriteSkillHaveShield;
-                int rndCanUseSkill = Random.Range(0, 101);
+                bool rndCanUseSkill = RandomChance._instance.GetRandomChance(10);
                 int _damage = 9;
-                if (rndCanUseSkill > 90)
+                if (rndCanUseSkill)
                 {
                     _damage *= 2;
                 }
@@ -237,7 +238,6 @@ public class ControlEnemy : MonoBehaviour
     {
         PartData partTarget = null;
         PartData partShield = null;
-        int chanceDodge = AccuracyPlayer(_effectSkill);
         if (_effectSkill == EffectSkill.BreakWeapon)
         {
             ControlPlayer cP = ControlGamePlay._instance.controlPlayer;
@@ -260,11 +260,10 @@ public class ControlEnemy : MonoBehaviour
             partTarget.partObject.GetComponent<ControlPart>().BlinkEffect();
         }
         partShield = FindEnemyPart("Shield");
-        int rndhitChance = Random.Range(0, 101);
-        if (_effectSkill == EffectSkill.ChangeDodgeShields)
+        if (_effectSkill == EffectSkill.ChangeDodgeShield)
         {
-            int rndChange = Random.Range(0, 101);
-            if (rndChange > 60)
+            bool rndChangeDodgeShield = RandomChance._instance.GetRandomChance(40);
+            if (rndChangeDodgeShield)
             {
                 _effectSkill = EffectSkill.DodgeShields;
             }
@@ -283,17 +282,20 @@ public class ControlEnemy : MonoBehaviour
         }
         // Debug.Log(partTarget.namePart);
         // Debug.Log(rndhitChance + " = rnd |" + chanceDodge + " = chan");
-        if (rndhitChance > chanceDodge)
+        // Debug.Log(DodgeChance(_effectSkill));
+        bool canDodge = RandomChance._instance.GetRandomChance(DodgeChance(_effectSkill));
+        if (!canDodge)
         {
-            Debug.Log("Get Hit");
+            // Debug.Log("Get Hit");
             PartTakeDamage(partTarget, _effectSkill, _damage);
         }
         else
         {
-            Debug.Log("Dodge");
+            // Debug.Log("Dodge");
             ControlGamePlay._instance.controlUI.ShowDamageUI(0, "", partTarget.partObject.GetComponent<ControlPart>());
         }
     }
+
     void PartTakeDamage(PartData _partTarget, EffectSkill _effectSkill, int _damage)
     {
         bool isWeakness = false;
@@ -359,7 +361,7 @@ public class ControlEnemy : MonoBehaviour
         ChangeSpritePart(FindEnemyPart("ArmRightUnder"), armUnderIdelSkill.spriteSkillNotHaveShield);
     }
 
-    public int AccuracyPlayer(EffectSkill _effectSkill)
+    public int DodgeChance(EffectSkill _effectSkill)
     {
         PartData _PartTarget = FindEnemyPart(ControlGamePlay._instance.partPlayerSelect.name);
         int accuracy = 5;
@@ -380,12 +382,10 @@ public class ControlEnemy : MonoBehaviour
         {
             accuracy += 30;
         }
-
         if (_effectSkill == EffectSkill.WeaponWeaknes)
         {
-            accuracy += 10;
+            accuracy += 20;
         }
-
         return accuracy;
     }
 }

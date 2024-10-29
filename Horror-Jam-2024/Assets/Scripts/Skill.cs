@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum EffectSkill
 {
-    None, ArmorPiercing, ShieldBrake, BreakTheShield,DodgeShields,Legsweep,Stun,BreakWeapon,ChangeDodgeShields,WeaponWeaknes
+    None, ArmorPiercing, ShieldBrake, BreakTheShield,DodgeShields,Legsweep,Stun,BreakWeapon,ChangeDodgeShield,WeaponWeaknes,CannotDodge
 }
 [CreateAssetMenu(fileName = "Skill - ", menuName = "CreateSkill")]
 public class Skill : ScriptableObject

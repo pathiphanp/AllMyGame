@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -122,16 +121,13 @@ public class ControlGamePlay : Singleton<ControlGamePlay>
     IEnumerator AttackAction(Skill _skill)
     {
         Sprite actionSprite = null;
-        foreach (PartData pD in controlPlayer.parts)
+        if (controlPlayer.FindPartInPlayer("Shield").canUsePart)
         {
-            if (pD.part.typePart[0] == TypePart.Shield && pD.canUsePart)
-            {
-                actionSprite = _skill.spriteSkillHaveShield;
-            }
-            else
-            {
-                actionSprite = _skill.spriteSkillNotHaveShield;
-            }
+            actionSprite = _skill.spriteSkillHaveShield;
+        }
+        else
+        {
+            actionSprite = _skill.spriteSkillNotHaveShield;
         }
         yield return new WaitForSeconds(0.2f);
         controlUI.SetCinemachineBrainDefaultBlend(0.1f);
